@@ -1,0 +1,13 @@
+Para rodar as 4 diferentes combinações das funções, lomuto randomico, lomuto mediana de três, hoare randomico e hoare mediana de três, deve-se descomentar as seguintes linhas nos seguintes arquivos:
+
+Lomuto mediana de três: descomentar linha 11 em quick_sort.cpp e linha 70 em auxiliar_functions.cpp.
+Além disso, deve-se comentar a linha 10 em quick_sort.cpp e a linha 71 em auxiliar_functions.cpp.
+
+Lomuto randomico: descomentar linha 11 em quick_sort.cpp e linha 71 em auxiliar_functions.cpp.
+Além disso, deve-se comentar a linha 10 em quick_sort.cpp e a linha 70 em auxiliar_functions.cpp.
+
+Hoare mediana de três: descomentar linha 10 em quick_sort.cpp e linha 43 em auxiliar_functions.cpp.
+Além disso, deve-se comentar a linha 11 em quick_sort.cpp e a linha 44 em auxiliar_functions.cpp.
+
+Hoare randomico: descomentar linha 10 em quick_sort.cpp e linha 44 em auxiliar_functions.cpp.
+Além disso, deve-se comentar a linha 11 em quick_sort.cpp e a linha 43 em auxiliar_functions.cpp.

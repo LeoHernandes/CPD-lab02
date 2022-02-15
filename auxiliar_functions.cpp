@@ -35,8 +35,7 @@ int randomValue(int start, int end){
     return distr(gen);
 }
 
-int hoare(int arr[], int low, int high, int *swaps)
-{
+int hoare(int arr[], int low, int high, int *swaps){
     int posMiddle = (low + high) / 2;
     int a = arr[low], b = arr[posMiddle], c = arr[high];
     int posMedian;
@@ -63,9 +62,7 @@ int hoare(int arr[], int low, int high, int *swaps)
     return j;
 }
 
-int lomuto(int arr[], int low, int high, int *swaps)
-{
-
+int lomuto(int arr[], int low, int high, int *swaps){
     int posMiddle = (low + high) / 2;
     int a = arr[low], b = arr[posMiddle], c = arr[high];
     int posMedian;
@@ -76,8 +73,6 @@ int lomuto(int arr[], int low, int high, int *swaps)
     *swaps = *swaps+1;
 
     int pivot = arr[low];
-    cout << pivot << "\n";
-    printArray(arr, 100);
     int j = low+1, flag = 0;
 
     int i;

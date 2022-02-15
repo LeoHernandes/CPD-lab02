@@ -5,7 +5,7 @@
 1314894556 source:c:\users\55519\documents\faculdade\4° semestre\classificação e pesquisa de dados\lab 02\cpd-lab02\main.cpp
 	<iostream>
 
-1644883773 source:/home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/main.cpp
+1644932162 source:/home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/main.cpp
 	<iostream>
 	<algorithm>
 	"quick_sort.h"
@@ -15,7 +15,7 @@
 
 1644883451 /home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/auxiliar_functions.h
 
-1644883666 source:/home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/quick_sort.cpp
+1644934264 source:/home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/quick_sort.cpp
 	<iostream>
 	<algorithm>
 	<math.h>
@@ -27,7 +27,7 @@
 	<iostream>
 	<random>
 
-1644883708 source:/home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/auxiliar_functions.cpp
+1644934281 source:/home/bruno/Documentos/ERE/CPD/LAB2/CPD-lab02/auxiliar_functions.cpp
 	<random>
 	<iostream>
 	<algorithm>
