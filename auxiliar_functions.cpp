@@ -2,8 +2,14 @@
 #include <iostream>
 #include <algorithm>
 #include <math.h>
+
 using namespace std;
 
+/* Prints on standard output stream the current status of an array. The values are separeted with commas.
+ * Inputs:
+ *      int *arr = array of numbers to be printed
+ *      int length = array size
+ */
 void printArray(int *arr, int length){
     for(int i = 0; i < length; i++){
         cout << arr[i];
@@ -12,20 +18,60 @@ void printArray(int *arr, int length){
     cout << "\n\n";
 }
 
-void swap(int* a, int* b)
-{
-    int t = *a;
-    *a = *b;
-    *b = t;
+/* Tests if a array of numbers is sorted in ascending order
+ * Inputs:
+ *      int *arr = array of numbers to be analysed
+ *      int length = array size
+ * Output:
+ *      bool = true, if the array is sorted
+ *             false, if the array is not sorted
+ */
+bool sorted(int *arr, int length){
+    int i = 1;
+
+    while(i < length){
+        if(arr[i] < arr[i - 1])
+            return false;
+    }
+
+    return true;
 }
 
-int median (int arr[], int a, int b, int c) {
-    if ((arr[a] <= arr[b]) && (arr[b] <= arr[c])) return b;  // a b c
-    if ((arr[a] <= arr[c]) && (arr[c] <= arr[b])) return c;  // a c b
-    if ((arr[b] <= arr[a]) && (arr[a] <= arr[c])) return a;  // b a c
-    if ((arr[b] <= arr[c]) && (arr[c] <= arr[a])) return c;  // b c a
-    if ((arr[c] <= arr[a]) && (arr[a] <= arr[b])) return a;  // c a b
-    return b;                            // c b a
+/* Swap the values of two elements in an integer array
+ * Inputs:
+ *      int *a = first element pointer
+ *      int *b = second element pointer
+ */
+void swapValues(int* a, int* b)
+{
+    int aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
+/* Finds the median value position between three values in an array
+ * Inputs:
+ *      int arr[] = array of integers
+ *      int a = first value index
+ *      int b = second value index
+ *      int c = third value index
+ * Output:
+ *      int = median value index
+ */
+int medianPos(int arr[], int a, int b, int c) {
+    if(arr[a] >= arr[b] && arr[a] >= arr[c]){
+        if(arr[b] >= arr[c])
+            return b;
+        return c;
+    }else if(arr[b] >= arr[c]){
+        if(arr[a] >= arr[c])
+            return a;
+        return c;
+    }else{
+        if(arr[a] >= arr[b])
+            return a;
+        return b;
+    }
 }
 
 int randomValue(int start, int end){
@@ -37,12 +83,11 @@ int randomValue(int start, int end){
 
 int hoare(int arr[], int low, int high, int *swaps){
     int posMiddle = (low + high) / 2;
-    int a = arr[low], b = arr[posMiddle], c = arr[high];
     int posMedian;
 
-    //posMedian = median(arr, low, posMiddle, high);
+    //posMedian = medianPos(arr, low, posMiddle, high);
     posMedian = randomValue(low, high);
-    swap(&arr[low], &arr[posMedian]);
+    swapValues(&arr[low], &arr[posMedian]);
     *swaps = *swaps+1;
     int pivot = arr[low];
     int i = low;
@@ -55,21 +100,20 @@ int hoare(int arr[], int low, int high, int *swaps){
 
     if (i >= j) break;
     *swaps = *swaps+1;
-    swap(&arr[i], &arr[j]);
+    swapValues(&arr[i], &arr[j]);
     }
     *swaps = *swaps+1;
-    swap(&arr[low], &arr[j]);
+    swapValues(&arr[low], &arr[j]);
     return j;
 }
 
 int lomuto(int arr[], int low, int high, int *swaps){
     int posMiddle = (low + high) / 2;
-    int a = arr[low], b = arr[posMiddle], c = arr[high];
     int posMedian;
 
-    posMedian = median(arr, low, posMiddle, high);
+    posMedian = medianPos(arr, low, posMiddle, high);
     //posMedian = randomValue(low, high);
-    swap(&arr[low], &arr[posMedian]);
+    swapValues(&arr[low], &arr[posMedian]);
     *swaps = *swaps+1;
 
     int pivot = arr[low];
@@ -78,12 +122,12 @@ int lomuto(int arr[], int low, int high, int *swaps){
     int i;
     for (i = low+1; i <= high; i++) {
         if (arr[i] <= pivot) {
-            swap(&arr[i], &arr[j]);
+            swapValues(&arr[i], &arr[j]);
             j++;
         }
     }
 
-    swap(&arr[j-1], &arr[low]);
+    swapValues(&arr[j-1], &arr[low]);
 
     return j-1;
 }
