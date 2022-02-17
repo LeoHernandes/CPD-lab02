@@ -1,8 +1,4 @@
-#include <random>
-#include <iostream>
-#include <algorithm>
-#include <math.h>
-
+#include "auxiliar_functions.h"
 using namespace std;
 
 /* Prints on standard output stream the current status of an array. The values are separeted with commas.
@@ -59,26 +55,24 @@ void swapValues(int* a, int* b)
  *      int = median value index
  */
 int medianPos(int arr[], int a, int b, int c) {
-    if(arr[a] >= arr[b] && arr[a] >= arr[c]){
-        if(arr[b] >= arr[c])
-            return b;
-        return c;
-    }else if(arr[b] >= arr[c]){
-        if(arr[a] >= arr[c])
-            return a;
-        return c;
-    }else{
-        if(arr[a] >= arr[b])
-            return a;
-        return b;
+    if(arr[a] >= arr[b] && arr[a] >= arr[c]){  // if arr[a] is the bigger value
+        if(arr[b] >= arr[c])                   // if arr[b] is the middle value
+            return b;                          // returns b
+        return c;                              // else, returns c
+    }else if(arr[b] >= arr[c]){                //
+        if(arr[a] >= arr[c])                   //
+            return a;                          //
+        return c;                              // analogue algorith
+    }else{                                     //
+        if(arr[a] >= arr[b])                   //
+            return a;                          //
+        return b;                              //
     }
 }
 
-int randomValue(int start, int end){
-    random_device rd; // obtain a random number from hardware
-    mt19937 gen(rd()); // seed the generator
-    uniform_int_distribution<> distr(start, end);
-    return distr(gen);
+
+int randomValue(int minValue, int maxValue){
+    return((rand() % (maxValue - minValue + 1)) + minValue);
 }
 
 int hoare(int arr[], int low, int high, int *swaps){

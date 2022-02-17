@@ -1,24 +1,17 @@
-#ifndef AUXILIAR_FUNCTIONS_H_INCLUDED
-#define AUXILIAR_FUNCTIONS_H_INCLUDED
+#ifndef AUXILIAR_FUNCTIONS_H
+#define AUXILIAR_FUNCTIONS_H
+
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <algorithm>
+#include <math.h>
 
 int hoare(int arr[], int low, int high, int *swaps);
 
 int lomuto(int arr[], int low, int high, int *swaps);
 
-void swapValues(int* a, int* b);
-
-/* Finds the median value position between three values in an array
- * Inputs:
- *      int arr[] = array of integers
- *      int a = first value index
- *      int b = second value index
- *      int c = third value index
- * Output:
- *      int = median value index
- */
-int medianPos(int arr[], int a, int b, int c);
-
-int randomValue(int start, int end);
+int randomValue(int minValue, int maxValue);
 
 /* Prints on standard output stream the current status of an array. The values are separeted with commas.
  * Inputs:
@@ -37,4 +30,4 @@ void printArray(int *arr, int length);
  */
 bool sorted(int *arr, int length);
 
-#endif // AUXILIAR_FUNCTIONS_H_INCLUDED
+#endif //AUXILIAR_FUNCTIONS_H

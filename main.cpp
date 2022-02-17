@@ -8,6 +8,8 @@ int main() {
     int arraySize, i;
     int *arr;
 
+    srand((unsigned)time(0));
+
     cin >> arraySize;
 
     while(!cin.eof()){
@@ -21,6 +23,5 @@ int main() {
         delete [] arr;
         cin >> arraySize;
     }
-
     return 0;
 }

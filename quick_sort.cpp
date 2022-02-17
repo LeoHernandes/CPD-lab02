@@ -1,10 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <math.h>
-#include <ctime>
-using namespace std;
-
-#include "auxiliar_functions.h"
+#include "quick_sort.h"
 
 void quicksortRec(int *arr, int posStart, int posEnd, int *swaps, int *recursions){
     if (posStart >= posEnd) return;
