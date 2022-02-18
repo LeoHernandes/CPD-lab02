@@ -11,8 +11,6 @@ int hoare(int arr[], int low, int high, int *swaps);
 
 int lomuto(int arr[], int low, int high, int *swaps);
 
-int randomValue(int minValue, int maxValue);
-
 /* Prints on standard output stream the current status of an array. The values are separeted with commas.
  * Inputs:
  *      int *arr = array of numbers to be printed

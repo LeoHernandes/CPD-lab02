@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="auxiliar_functions.cpp" />
+		<Unit filename="auxiliar_functions.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="quick_sort.cpp" />
+		<Unit filename="quick_sort.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

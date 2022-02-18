@@ -70,7 +70,13 @@ int medianPos(int arr[], int a, int b, int c) {
     }
 }
 
-
+/* Return a random number in the closed interval [minValue, maxValue]
+ * Inputs:
+ *      int minValue = interval bottom value
+ *      int maxValue = interval upper value
+ * Output:
+ *      int = random number
+ */
 int randomValue(int minValue, int maxValue){
     return((rand() % (maxValue - minValue + 1)) + minValue);
 }
@@ -105,8 +111,8 @@ int lomuto(int arr[], int low, int high, int *swaps){
     int posMiddle = (low + high) / 2;
     int posMedian;
 
-    posMedian = medianPos(arr, low, posMiddle, high);
-    //posMedian = randomValue(low, high);
+    //posMedian = medianPos(arr, low, posMiddle, high);
+    posMedian = randomValue(low, high);
     swapValues(&arr[low], &arr[posMedian]);
     *swaps = *swaps+1;
 
