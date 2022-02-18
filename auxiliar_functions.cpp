@@ -28,6 +28,7 @@ bool sorted(int *arr, int length){
     while(i < length){
         if(arr[i] < arr[i - 1])
             return false;
+        i++;
     }
 
     return true;
@@ -81,53 +82,31 @@ int randomValue(int minValue, int maxValue){
     return((rand() % (maxValue - minValue + 1)) + minValue);
 }
 
-int hoare(int arr[], int low, int high, int *swaps){
-    int posMiddle = (low + high) / 2;
-    int posMedian;
-
-    //posMedian = medianPos(arr, low, posMiddle, high);
-    posMedian = randomValue(low, high);
-    swapValues(&arr[low], &arr[posMedian]);
-    *swaps = *swaps+1;
-    int pivot = arr[low];
-    int i = low;
-    int j = high + 1;
-    while (1) {
-    while (arr[++i] < pivot)
-        if (i == high) break;
-    while (arr[--j] > pivot)
-        if (j == low) break;
-
-    if (i >= j) break;
-    *swaps = *swaps+1;
-    swapValues(&arr[i], &arr[j]);
+/* Choose the type of quicksort algorithm
+ * Inputs:
+ *      int algorithmChoice = 1, hoare's partition, median pivot
+ *                            2, lomuto's partition, median pivot
+ *                            3, hoare's partition, random pivot
+ *                            4, lomuto's partition, random pivot
+ *      bool *hoare = pointer to partition choice
+ *      bool *randomPivot = pointer to pivot choice
+ */
+void quickSortType(int algorithmChoice, bool *hoare, bool *randomPivot){
+    switch(algorithmChoice){
+        case 1:
+            *hoare = true;
+            *randomPivot = false;
+            break;
+        case 2:
+            *hoare = false;
+            *randomPivot = false;
+            break;
+        case 3:
+            *hoare = true;
+            *randomPivot = true;
+            break;
+        case 4:
+            *hoare = false;
+            *randomPivot = true;
     }
-    *swaps = *swaps+1;
-    swapValues(&arr[low], &arr[j]);
-    return j;
-}
-
-int lomuto(int arr[], int low, int high, int *swaps){
-    int posMiddle = (low + high) / 2;
-    int posMedian;
-
-    //posMedian = medianPos(arr, low, posMiddle, high);
-    posMedian = randomValue(low, high);
-    swapValues(&arr[low], &arr[posMedian]);
-    *swaps = *swaps+1;
-
-    int pivot = arr[low];
-    int j = low+1, flag = 0;
-
-    int i;
-    for (i = low+1; i <= high; i++) {
-        if (arr[i] <= pivot) {
-            swapValues(&arr[i], &arr[j]);
-            j++;
-        }
-    }
-
-    swapValues(&arr[j-1], &arr[low]);
-
-    return j-1;
 }
