@@ -14,7 +14,7 @@
 int hoare(int arr[], int low, int high, int *swaps, bool randomPivot){
     int i = low;
     int j = high + 1;
-    int pivot = arr[low];
+    int pivot;
     int posMiddle = (low + high) / 2;
     int posMedian;
 
@@ -22,6 +22,7 @@ int hoare(int arr[], int low, int high, int *swaps, bool randomPivot){
 
     swapValues(&arr[low], &arr[posMedian]);
     *swaps = *swaps+1;
+    pivot = arr[low];
 
     while (1) {
         while (arr[++i] < pivot)
@@ -54,7 +55,7 @@ int hoare(int arr[], int low, int high, int *swaps, bool randomPivot){
 int lomuto(int arr[], int low, int high, int *swaps, bool randomPivot){
     int i;
     int j = low+1;
-    int pivot = arr[low];
+    int pivot;
     int posMiddle = (low + high) / 2;
     int posMedian;
 
@@ -62,6 +63,8 @@ int lomuto(int arr[], int low, int high, int *swaps, bool randomPivot){
 
     swapValues(&arr[low], &arr[posMedian]);
     *swaps = *swaps+1;
+
+    pivot = arr[low];
 
     for (i = low+1; i <= high; i++) {
         if (arr[i] <= pivot) {
